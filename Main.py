@@ -13,6 +13,7 @@ for i in range(30):
 first_frame = None
 status_list = []
 count = 1
+iobject = None
 
 while True:
     status = 0
@@ -64,7 +65,8 @@ while True:
     status_list = status_list[-2:]
 
     if len(status_list) == 2 and status_list[-1] == 1 and status_list[0] == 0:
-        send_email()
+        if iobject:
+            send_email(iobject)
 
     cv2.imshow("Video", frame)
 
